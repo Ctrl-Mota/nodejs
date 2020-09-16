@@ -1,7 +1,7 @@
 import {Schema , model} from 'mongoose';
 
 const HouseSchema = new Schema({
-    upfile: File,
+    upfile: String,
     description: String,
     price: Number,
     location: String,
