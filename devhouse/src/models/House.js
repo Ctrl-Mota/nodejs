@@ -10,7 +10,13 @@ const HouseSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
-
+},{
+    toJSON:{
+        virtuals: true
+    }
 });
 
+HouseSchema.virtual('upfile_url').get(function(){
+    return `http://localhost:3333/files/${this.upfile}`
+})
 export default model('House', HouseSchema);
