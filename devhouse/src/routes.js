@@ -10,5 +10,6 @@ const upload = multer(uploadConfig);
 
 routes.post('/sessions', SessionController.store);
 routes.post('/houses', upload.single('upfile'), HouseController.store);
+routes.get('/houses', HouseController.index);
 
 export default routes;
