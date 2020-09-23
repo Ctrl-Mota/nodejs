@@ -1,7 +1,8 @@
-import express from 'express';
-import path from 'path';
-import mongoose from 'mongoose'
-import routes from './routes';
+import express from "express";
+import path from "path";
+import cors from "cors"
+import mongoose from "mongoose"
+import routes from "./routes";
 
 class App{
 
@@ -16,11 +17,11 @@ class App{
     }
 
     middlewares(){
-
+        this.server.use(cors({}));
         this.server.use('/files', 
-        express.static(path.resolve(__dirname, '..', 'uploads'))
+            express.static(path.resolve(__dirname, '..', 'uploads'))
         );
-
+        
         this.server.use(express.json());
     }
     routes(){
